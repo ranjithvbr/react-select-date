@@ -248,7 +248,7 @@ function Calendar({
         // firstOrder change className
         const rangeStartDate = startAndendDate.startDate && startAndendDate.startDate;
         const rangeEndDate = startAndendDate.endDate && startAndendDate.endDate;
-        if (rangeId.length === 1 && rangeStartDate.getDate() > Number(inRange)) {
+        if (rangeId.length === 1 && inRange && rangeStartDate.getDate() > Number(inRange)) {
           rangeHightLight = rangeId[0] === dateId && `${templateHighLightbg} cld_highlightLastNum`;
         }
         // classname for range, single and multiple
@@ -260,7 +260,7 @@ function Calendar({
         }
         // startDate and endDate between ranges
         let inRangeCondition;
-        if (rangeId.length === 1) {
+        if (rangeId.length === 1 && inRange) {
           if (dynYear === rangeStartDate.getFullYear() && dynMonth === rangeStartDate.getMonth() + 1) {
             inRangeCondition =
               (Number(inRange) >= i - getStartDay &&

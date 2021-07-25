@@ -1,6 +1,6 @@
 {
   "name": "react-select-date",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "A React Calendar that consists of between single-date, multiple-date, range and slots booking features",
   "author": "Ranjith",
   "license": "MIT",

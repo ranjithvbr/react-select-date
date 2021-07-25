@@ -8,7 +8,7 @@ type AppParamaterProps = {
   disableCertainDates: Array<object>,
   duelSlotDates: Array<object>,
   singleSlotDates: Array<object>,
-  // onSelect: ()=>void,
+  onSelect: (date: Date) => Date,
   slotInfo: boolean,
   showDateInputField: boolean,
   showArrow: boolean,
@@ -24,9 +24,9 @@ const App = ({
   disableCertainDates,
   duelSlotDates,
   singleSlotDates,
-  // onSelect,
+  onSelect,
   slotInfo,
-  showDateInputField ,
+  showDateInputField,
   showArrow,
   showSelectMonthArrow,
   showSelectYearArrow,
@@ -34,13 +34,13 @@ const App = ({
   templateClr,
 }: AppParamaterProps) => {
   return (
-      <Calendar
+    <Calendar
       selectDateType={selectDateType}
       disableDates={disableDates}
       disableCertainDates={disableCertainDates}
       duelSlotDates={duelSlotDates}
       singleSlotDates={singleSlotDates}
-      onSelect={(data: Date) => console.log(data, "data")}
+      onSelect={(date: Date) => onSelect && onSelect(date)}
       slotInfo={slotInfo}
       showDateInputField={showDateInputField}
       showArrow={showArrow}
@@ -48,7 +48,7 @@ const App = ({
       showSelectYearArrow={showSelectYearArrow}
       showDatelabel={showDatelabel}
       templateClr={templateClr}
-       />
+    />
   )
 }
 
