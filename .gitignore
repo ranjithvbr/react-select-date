@@ -1,0 +1,8 @@
+# Dependency
+node_modules
+
+# eslint cache
+.eslintcache
+
+# generate output
+dist

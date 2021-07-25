@@ -1,0 +1,93 @@
+.cld_container input {
+  height: 32px;
+  border: none;
+  box-shadow: 0px 0px 3px 0px #8a8a8a;
+  text-transform: uppercase;
+  font-size: 14px;
+  color: #797979;
+  width: 99.5%;
+  text-align: center;
+  border-radius: 3px;
+  outline: none;
+  border: 1px solid #fff;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',    sans-serif;
+}
+
+.cld_container input:focus-within.cld_greenOutline {
+  border: 1px solid #3ecf8e;
+  box-shadow: 0px 0px 2px 0px #3a9c71;
+}
+
+.cld_container input:focus-within.cld_blueOutline {
+  border: 1px solid #3d91ff;
+  box-shadow: 0px 0px 2px 0px #2971d0;
+}
+
+.cld_container input[type="date"]::-webkit-inner-spin-button,
+.cld_container input[type="date"]::-webkit-calendar-picker-indicator {
+  display: none;
+  -webkit-appearance: none;
+}
+
+.hideSubmitBtn {
+  display: none;
+}
+
+.cld_errmsgContainer {
+  display: flex;
+  height: 15px;
+  justify-content: space-between;
+}
+
+.cld_startaerrmsg {
+  display: flex;
+  height: 15px;
+  justify-content: center;
+}
+
+.cld_errmsg {
+  color: red;
+  font-size: 11px;
+  white-space: nowrap;
+  font-weight: 500;
+}
+
+.hidecld_errmsg {
+  width: fit-content;
+}
+
+.cld_fieldContainer {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 2px;
+}
+
+.cld_fieldContainer label {
+  font-size: 14px;
+  color: #545454;
+  margin-bottom: 17px;
+  font-weight: 500;
+}
+
+.cld_fieldContainer label ~ input {
+  margin-top: 3px;
+}
+
+.cld_fieldContainer > div:first-child {
+  margin-right: 10%;
+  width: 100%;
+}
+
+.cld_fieldContainer > div:nth-child(2) {
+  margin-left: 10%;
+  width: 100%;
+}
+
+.cld_startDateFieldOnly {
+  display: flex;
+  justify-content: center;
+}
+
+.cld_startDateFieldOnly > div:first-child {
+  width: 100%;
+}

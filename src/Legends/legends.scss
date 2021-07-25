@@ -1,0 +1,47 @@
+.cld_slotContainer {
+  display: flex;
+  height: 10px;
+  margin-top: 10px;
+}
+
+.cld_slotContainer > div {
+  margin-right: 12px;
+}
+
+.cld_slot {
+  display: flex;
+  align-items: center;
+}
+
+.cld_slotInfoSize {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+.cld_slotInfoSize ~ span {
+  font-size: 11px;
+  font-weight: 500;
+  color: #383838;
+}
+
+.cld_slotInfoSelectedBlueClr {
+  background-color: #3d91ff;
+}
+
+.cld_slotInfoSelectedGreenClr {
+  background-color: #3ecf8e;
+}
+
+.cld_slotInfoDisabledClr {
+  background-color: #b4b4b4;
+}
+
+.cld_slotInfoAvailableClr {
+  background-color: #64d464;
+}
+
+.cld_slotInfoTotalClr {
+  background-color: #2680eb;
+}

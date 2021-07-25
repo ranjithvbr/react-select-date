@@ -1,0 +1,41 @@
+.cld_showDays select:first-child {
+  margin-right: 10px;
+}
+
+.cld_container select {
+  border-color: #fff;
+  padding: 5px 2px;
+  font-size: 15px;
+  border-radius: 3px;
+  outline: none;
+  background-color: transparent;
+  border: none;
+}
+
+select::-ms-expand {
+  background-color: red;
+}
+
+.cld_container select:hover {
+  background-color: #fff;
+}
+
+.cld_container option {
+  font-size: small;
+}
+
+.cld_container select:hover {
+  cursor: pointer;
+}
+
+.cld_container select.cld_disableArrow {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  opacity: 1;
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.cld_container select:disabled:hover.cld_disableArrow {
+  cursor: unset;
+}

@@ -1,0 +1,290 @@
+.cld_container {
+  margin: 5% auto;
+  box-shadow: 0px 1px 5px 1px #dddddd;
+  padding: 1%;
+  border-radius: 5px;
+  background: #f1f1f1;
+}
+
+.cld_slotWidth {
+  width: 40%;
+}
+
+.cld_avlSlotWidth {
+  width: 38%;
+}
+
+.cld_noslotWidth {
+  width: 30%;
+}
+
+.cld_btnAlign {
+  display: flex;
+  justify-content: space-between;
+  margin: 6px 0;
+}
+
+.cld_monthYearAlign {
+  display: flex;
+  justify-content: center;
+  margin: 6px 0;
+}
+
+.cld_btnAlign button:disabled,
+.cld_btnAlign button:disabled:hover {
+  cursor: unset;
+  background-color: #d0d0d0;
+  box-shadow: none;
+}
+
+.cld_btnAlign button {
+  cursor: pointer;
+  font-size: 12px;
+  padding: 7px;
+  height: fit-content;
+  border-radius: 2px;
+  border: none;
+  box-shadow: 0px 0px 2.4px 0px #8a8a8a;
+  background-color: #ffffff;
+  color: #849095;
+}
+
+.cld_btnAlign button:hover {
+  background-color: #f1f1f1;
+}
+
+.cld_showDays {
+  display: flex;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.cld_highlightFirstNum {
+  color: #ffffff;
+  background-color: #3ecf8e;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  padding-inline-end: 10px;
+}
+
+.cld_highlightNum {
+  color: #ffffff;
+}
+
+.cld_highlightLastNum {
+  color: #ffffff;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding-inline-start: 10px;
+}
+
+.cld_highlightNumCircle {
+  border-radius: 20px;
+  color: #ffffff;
+  margin: 0 5px;
+}
+
+.cld_blueHighlight {
+  background-color: #3d91ff;
+}
+
+.cld_greenHighlight {
+  background-color: #3ecf8e;
+}
+
+.cld_inrangeBlue {
+  background-color: #aacbf7;
+}
+
+.cld_inrangeGreen {
+  background-color: #b8ead4;
+}
+
+.cld_container td:hover .cld_inrangeLastIndex {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.cld_container td:hover .cld_inrangeFirstIndex {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.cld_container td:hover .cld_inrangeIndexBlue {
+  background-color: #aacbf7;
+}
+
+.cld_container td:hover .cld_inrangeIndexGreen {
+  background-color: #b8ead4;
+}
+
+/* table */
+.cld_container table {
+  border-collapse: collapse;
+  width: 100%;
+  background: #ffffff;
+  table-layout: fixed;
+  box-shadow: 0px 0px 1px 0px #b4b4b4;
+  border-radius: 2px;
+}
+
+.cld_noslotWidth td,
+.cld_noslotWidth th {
+  border: 1px solid #f1f1f1;
+  padding: 8px;
+  text-align: center;
+}
+
+.cld_slotWidth td,
+.cld_slotWidth th,
+.cld_avlSlotWidth td,
+.cld_avlSlotWidth th {
+  border: 1px solid #a5a5a5;
+  padding: 8px;
+  text-align: center;
+}
+
+.cld_container th {
+  font-weight: 400;
+  color: #849095;
+  font-size: 14px;
+}
+
+.cld_container td {
+  padding: 8px 0px;
+  cursor: pointer;
+  position: relative;
+  font-size: 14px;
+}
+
+.cld_cellHover {
+  position: relative;
+  padding: 3px;
+}
+
+.cld_cellHoverMg {
+  margin: 15px 0;
+  padding: 2px;
+}
+
+.cld_cellAvailableMg{
+  margin-top: 14px;
+  margin-bottom: 4px;
+}
+
+.cld_cellSingleMultiple {
+  margin: 0 5px;
+}
+
+.cld_cellHoverMgbt {
+  margin: 15px 5px;
+}
+
+.cld_container td:nth-child(n + 7) div.cld_highlightNum,
+.cld_container td:nth-child(n + 7) div.cld_highlightFirstNum,
+.cld_container td:nth-child(n + 7) div.cld_highlightLastNum,
+.cld_container td:nth-child(n + 7) div.cld_inrangeBlue,
+.cld_container td:nth-child(n + 7) div.cld_inrangeGreen,
+.cld_container td:nth-child(n + 7) div.cld_disablebgColor {
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
+  margin-right: 5px;
+}
+
+.cld_container td:nth-child(7n + 1) div.cld_highlightNum,
+.cld_container td:nth-child(7n + 1) div.cld_highlightLastNum,
+.cld_container td:nth-child(7n + 1) div.cld_highlightFirstNum,
+.cld_container td:nth-child(7n + 1) div.cld_inrangeBlue,
+.cld_container td:nth-child(7n + 1) div.cld_inrangeGreen,
+.cld_container td:nth-child(7n + 1) div.cld_disablebgColor {
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
+  margin-left: 5px;
+}
+
+.cld_container td:hover .cld_cellHover.cld_cellActive:after {
+  content: "";
+  position: absolute;
+  top: -2px;
+  right: 0px;
+  bottom: -2px;
+  left: 0px;
+  border-radius: 20px;
+}
+
+.cld_container td:hover .cld_cellHover.cld_cellGreenActive:after {
+  border: 1px solid #008000;
+}
+
+.cld_container td:hover .cld_cellHover.cld_cellBlueActive:after {
+  border: 1px solid #004baf;
+}
+
+.cld_disableDate {
+  color: #c4c4c4;
+}
+
+.cld_disablebgColor {
+  color: #ffffff;
+  background: #b4b4b4;
+}
+
+/* slots */
+.cld_slots {
+  font-size: 13px;
+  width: 25px;
+  height: 18px;
+  padding-inline-start: 4px;
+  font-weight: 500;
+}
+
+.cld_availableSlots {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 0 0 16px 0;
+  color: #64d464;
+  background: #def5de;
+  box-shadow: 0px 0px 3px 0px #29ef29;
+  /* box-shadow: 1px 1px 1px 0px rgb(38 128 235 / 44%); */
+  text-align: left;
+}
+
+.cld_totalSlots {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  border-radius: 16px 0 0 0;
+  box-shadow: 0px 0px 3px 0px #3e82d4;
+  background: #dde2ef;
+  /* box-shadow: 0px 0px 0px 1px rgb(38 128 235 / 44%); */
+  color: #2680eb;
+}
+
+.cld_currentDay::before {
+  content: "";
+  position: absolute;
+  bottom: 2px;
+  left: 51%;
+  transform: translate(-50%, 0);
+  width: 17px;
+  height: 2px;
+  border-radius: 2px;
+}
+
+.cld_currentDay.cld_currentDayBlue::before {
+  background: #3d91ff;
+}
+
+.cld_currentDay.cld_currentDayGreen::before {
+  background: #3ecf8e;
+}
+
+.cld_currentDay.cld_highlightNum::before,
+.cld_currentDay.cld_highlightLastNum::before,
+.cld_currentDay.cld_highlightFirstNum::before,
+.cld_currentDay.cld_highlightNumCircle::before,
+.cld_disablebgColor.cld_currentDay::before {
+  background: #ffffff;
+}
+
