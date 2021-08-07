@@ -42,7 +42,7 @@ function MyComponent() {
       <Calendar 
         onSelect={(date) => console.log(date)}
         selectDateType="range"
-        // select template color
+        // select-date color
         templateClr="blue"
       />
   );
@@ -77,21 +77,31 @@ export default MyComponent;
 ```
 ### Options
 
-Property                             | type      | Default Value    | Description
--------------------------------------|-----------|------------------|-----------------------------------------------------------------
+Property                             | type       | Default Value    | Description
+-------------------------------------|------------|------------------|-----------------------------------------------------------------
 selectDateType                       | String    | single           | defines the selection type of single,multiple or range
 onSelect                             | Func      |                  | callback function for returns the selected date
 singleSlotDates                      | *Object[] | []               | defines the avilable slots
 duelSlotDates                        | *Object[] | []               | defines the avilable and total slots
-templateClr                          | String    | green            | defines the selecte date color(green || blue)
+templateClr                          | String    | green            | defines the selecte date color(green or blue)
 disableCertainDates                  | *Object[] | []               | disables the specific dates
 disableDates                         | String    |                  | disables the past or future dates
+disableDays                          | *Object[] | []               | disables the day
+minDate                              | String/Date Object     |                  | defines minimum date. Disabled earlier dates 
+maxDate                              | String/Date Object     |                  | defines maximam date. Disabled later dates 
 slotInfo                             | Boolean   | true             | show/hide visibility of slotInfo
 showDatelabel                        | Boolean   | false            | show/hide visibility of label for date input
 showDateInputField                   | Boolean   | true             | show/hide visibility of date input
-showSelectMonthArrow                       | Boolean   | false            | whether month select field can be editable and visibility of arrow
-showSelectYearArrow                        | Boolean   | false            | whether year select field can be editable and visibility of arrow 
+showSelectMonthArrow                 | Boolean   | false            | whether month select field can be editable and visibility of arrow
+showSelectYearArrow                  | Boolean   | false            | whether year select field can be editable and visibility of arrow 
 showArrow                            | Boolean   | true             | show/hide visibility of left arrow and right arrow
+
+### Default value
+Property                             | type       | Example          | Description
+-------------------------------------|------------|------------------|-----------------------------------------------------------------
+defaultValue(Single)                 | Object     | { date: "2021-9-9" } | defines the default value for single select
+defaultValue(Multiple)               | Array      | [ "2021-8-15", "2021-08-01", new Date() ] | defines the default value for multiple select
+defaultValue(Range)                  | Object     | { startDate: "2021-8-15", endDate: "2021-8-20" } | defines the default value for range select
 
 ### About Calendar
 This Calendar was developed using Hooks and Javascript date object without any dependencies. The calendar has options where users can choose between single-date, multiple-date, range and slots booking features.
@@ -114,6 +124,34 @@ Slots booking is a fully controlled component that allows users to view the avil
 singleSlotDates = {[ { date: "2021-07-03", avaliableSlot: "7" } ]}
 duelSlotDates = {[ { date: "2021-07-02", totalSlot: "30", avaliableSlot: "4" } ]}
 ```
+### Overriding styles
+Feel free to override the styles, can customize the calendar styles as you expect.
+```css
+// Few Example:
+
+// to change the disable number style
+.cld_container .cld_disableDate{
+  color: red;
+}
+
+// to change the selected date style
+// if using templateClr = blue replace the "cld_greenHighlight" classname to "cld_blueHighlight"
+.cld_container .cld_greenHighlight{
+   background-color: #ff8100; 
+}
+
+// to change the selected disable date style
+.cld_container .cld_disablebgColor{
+   color: #ffffff;
+   background: #ff9595;
+}
+
+// to change the calender background style
+#root .cld_container{
+  background-color: #fafad2;
+}
+```
+
 ### Author
 - Ranjith - ranjithvbr@gmail.com
 
