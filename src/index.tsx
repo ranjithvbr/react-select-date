@@ -16,6 +16,10 @@ type AppParamaterProps = {
   showSelectYearArrow: boolean,
   showDatelabel: boolean,
   templateClr: string,
+  minDate: string,
+  maxDate: string,
+  disableDays: Array<string>,
+  defaultValue: any,
 };
 
 const App = ({
@@ -32,6 +36,10 @@ const App = ({
   showSelectYearArrow,
   showDatelabel,
   templateClr,
+  minDate,
+  maxDate,
+  disableDays,
+  defaultValue
 }: AppParamaterProps) => {
   return (
     <Calendar
@@ -48,6 +56,10 @@ const App = ({
       showSelectYearArrow={showSelectYearArrow}
       showDatelabel={showDatelabel}
       templateClr={templateClr}
+      minDate={minDate}
+      maxDate={maxDate}
+      disableDays={disableDays}
+      defaultValue={defaultValue}
     />
   )
 }

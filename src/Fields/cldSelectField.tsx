@@ -6,7 +6,9 @@ type monthParameterProps = {
   dynMonth: number,
   dynYear: number,
   handleChangeSelect: (data: any)=> void,
-  showSelectMonthArrow: boolean
+  showSelectMonthArrow: boolean,
+  minDate: any,
+  maxDate: string,
 };
 
 const months = [
@@ -29,21 +31,48 @@ const currentDate = new Date();
  * @param {*} props all props
  * @returns {object} returns a select field(Month)
  */
-export function SelectMonthField({ disableState, dynMonth, dynYear, handleChangeSelect, showSelectMonthArrow } : monthParameterProps) {
+export function SelectMonthField({ disableState, dynMonth, dynYear, handleChangeSelect, showSelectMonthArrow, minDate, maxDate } : monthParameterProps) {
   /**
    * @param {number} index contain id
    * @returns {boolean} returns a boolean value
    */
-  const disableMonthFunc = (index: number): boolean => {
-    let disableMon;
-    if (disableState === "past") {
-      disableMon = currentDate.getFullYear() === dynYear && currentDate.getMonth() > index;
-    } else if (disableState === "future") {
-      disableMon = currentDate.getFullYear() === dynYear && currentDate.getMonth() < index;
-    } else {
-      disableMon = false;
+  const disableMonthFunc = (index: number) => {
+    if(disableState === "past"){
+      if(minDate && maxDate){
+        let dateSetPast = new Date(minDate) < new Date() ? new Date() : new Date(minDate);
+        return (dateSetPast.getFullYear() === dynYear && dateSetPast.getMonth() > index) || (new Date(maxDate).getFullYear() === dynYear && new Date(maxDate).getMonth() < index);
+      }
+      if(minDate && new Date(minDate) > new Date()){
+        return new Date(minDate).getFullYear() === dynYear && new Date(minDate).getMonth() > index;
+      }
+      if(maxDate){
+        return (currentDate.getFullYear() === dynYear && currentDate.getMonth() > index) || (new Date(maxDate).getFullYear() === dynYear && new Date(maxDate).getMonth() < index);
+      }
+      return currentDate.getFullYear() === dynYear && currentDate.getMonth() > index;
+    }else if(disableState === "future"){
+      if(minDate && maxDate){
+        let dateSet = new Date(maxDate) > new Date() ? new Date() : new Date(maxDate);
+        return (new Date(minDate).getFullYear() === dynYear && new Date(minDate).getMonth() > index) || (dateSet.getFullYear() === dynYear && dateSet.getMonth() < index);
+      }
+      if(minDate && new Date(minDate) < new Date()){
+        return (new Date(minDate).getFullYear() === dynYear && new Date(minDate).getMonth() > index) || (currentDate.getFullYear() === dynYear && currentDate.getMonth() < index);
+      }
+
+      if(maxDate && new Date(maxDate) < new Date()){
+        return new Date(maxDate).getFullYear() === dynYear && new Date(maxDate).getMonth() < index
+      }
+      return currentDate.getFullYear() === dynYear && currentDate.getMonth() < index;
     }
-    return disableMon;
+    if(minDate && maxDate){
+      return (new Date(minDate).getFullYear() === dynYear && new Date(minDate).getMonth() > index) || (new Date(maxDate).getFullYear() === dynYear && new Date(maxDate).getMonth() < index);
+    }
+    if(minDate && !disableState){
+      return new Date(minDate).getFullYear() === dynYear && new Date(minDate).getMonth() > index;
+    }
+    if(maxDate && !disableState){
+      return new Date(maxDate).getFullYear() === dynYear && new Date(maxDate).getMonth() < index;
+    }
+    return;
   };
 
   return (
@@ -69,7 +98,7 @@ type yearParameterProps = {
   dynYear: number,
   startAndendYearOptions: any,
   handleChangeSelect: (data: any)=> void,
-  showSelectYearArrow: boolean
+  showSelectYearArrow: boolean,
 };
 
 /**

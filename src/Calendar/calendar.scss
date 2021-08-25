@@ -1,33 +1,37 @@
 .cld_container {
-  // margin: 5% auto;
+  // margin: 0 auto;
   box-shadow: 0px 1px 5px 1px #dddddd;
   padding: 1%;
   border-radius: 5px;
   background: #f1f1f1;
+  box-shadow: 0px 0px 15px 0px rgb(96 125 139);
 }
 
 .cld_slotWidth {
   width: 40%;
+  min-width: 30rem;
 }
 
 .cld_avlSlotWidth {
   width: 38%;
+  min-width: 27rem;
 }
 
 .cld_noslotWidth {
-  width: 30%;
+  width: 23em;
+  min-width: 15em;
 }
 
 .cld_btnAlign {
   display: flex;
   justify-content: space-between;
-  margin: 6px 0;
+  margin: 0px 1px 6px 1px;
 }
 
 .cld_monthYearAlign {
   display: flex;
   justify-content: center;
-  margin: 6px 0;
+  margin: 0px 1px 6px 1px;
 }
 
 .cld_btnAlign button:disabled,
@@ -180,6 +184,10 @@
   margin: 15px 5px;
 }
 
+.cld_cellHoverMgbtSingle{
+  margin: 15px 5px 3px 5px;
+}
+
 .cld_container td:nth-child(n + 7) div.cld_highlightNum,
 .cld_container td:nth-child(n + 7) div.cld_highlightFirstNum,
 .cld_container td:nth-child(n + 7) div.cld_highlightLastNum,
@@ -246,7 +254,6 @@
   color: #64d464;
   background: #def5de;
   box-shadow: 0px 0px 3px 0px #29ef29;
-  /* box-shadow: 1px 1px 1px 0px rgb(38 128 235 / 44%); */
   text-align: left;
 }
 
@@ -257,7 +264,6 @@
   border-radius: 16px 0 0 0;
   box-shadow: 0px 0px 3px 0px #3e82d4;
   background: #dde2ef;
-  /* box-shadow: 0px 0px 0px 1px rgb(38 128 235 / 44%); */
   color: #2680eb;
 }
 
@@ -288,3 +294,28 @@
   background: #ffffff;
 }
 
+.startDateDisablebg{
+  color: #ffffff;
+  background: #b4b4b4;
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
+  margin-left: 5px;
+}
+
+.endDateDisablebg{
+  color: #ffffff;
+  background: #b4b4b4;
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
+  margin-right: 5px;
+}
+
+.cld_container td:nth-child(n + 7) div.startDateDisablebg{
+  border-radius: 10px;
+  margin-right: 5px;
+}
+
+.cld_container td:nth-child(7n + 1) div.endDateDisablebg{
+  border-radius: 10px;
+  margin-left: 5px;
+}

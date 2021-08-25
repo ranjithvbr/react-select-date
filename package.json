@@ -1,12 +1,12 @@
 {
   "name": "react-select-date",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "A React Calendar that consists of between single-date, multiple-date, range and slots booking features",
   "author": "Ranjith",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ranjithvbr/react-select-date-npm.git"
+    "url": "git+https://github.com/ranjithvbr/react-select-date.git"
   },
   "bugs": {
     "url": "https://github.com/ranjithvbr/react-select-date/issues"
@@ -48,6 +48,7 @@
     "calendar",
     "datepicker",
     "rangepicker",
-    "slotBooking"
+    "slotBooking",
+    "Booking"
   ]
 }

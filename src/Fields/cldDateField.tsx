@@ -3,14 +3,19 @@ import { useEffect, useState, useMemo } from 'react';
 import { getDisableDateForField, formatDay } from "../cldDisable";
 import "./cldDateField.scss";
 
+const days: any = {sun: 0, mon: 1, tue: 2, wed: 3, thu: 4, fri: 5, sat: 6};
 type parameterFieldProps = {
   disableState: string,
   selectType: string,
   selectedDateFromCld: any,
-  selectedDate: (data: object)=> void,
+  selectedDate: (data: object) => void,
   disableCertainDate: any,
   showDatelabel: boolean,
   templateClr: string,
+  propsMinDate: string,
+  propsMaxDate: string,
+  disableDay: any,
+  daysInMonth: any,
 }
 
 /**
@@ -25,11 +30,16 @@ function CldDateField({
   disableCertainDate,
   showDatelabel,
   templateClr,
+  propsMinDate,
+  propsMaxDate,
+  disableDay,
+  daysInMonth,
 }: parameterFieldProps) {
   const [startDate, setStartDate] = useState<string>("");
   const [endDate, setEndDate] = useState<string>("");
   const [errMsgStart, setErrMsgStart] = useState<string | undefined>();
   const [errMsgEnd, setErrMsgEnd] = useState<string | undefined>();
+  const [windowDimensions, setWindowDimensions] = useState<any>(window.innerWidth);
   const [selectedDateFromField, setSelectedDateFromField] = useState({
     startDateFromField: "",
     endDateFromField: "",
@@ -41,6 +51,15 @@ function CldDateField({
   const templateOutline = useMemo(() => {
     return templateClr === "blue" ? "cld_blueOutline" : "cld_greenOutline";
   }, [templateClr]);
+
+  function handleResize() {
+    setWindowDimensions(window.innerWidth);
+  }
+
+  useEffect(() => {
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -55,6 +74,17 @@ function CldDateField({
       setminAndmaxDate(getDisableDateForField(disableState));
     }
   }, [disableState]);
+
+  useEffect(() => {
+    if(propsMinDate || propsMaxDate || disableState){
+      setminAndmaxDate({
+        minDate: disableState === "past" && propsMinDate && new Date(propsMinDate) < new Date() ? formatDay(new Date()) : formatDay(new Date(propsMinDate)),
+        maxDate: disableState === "future" && propsMaxDate && new Date(propsMaxDate) > new Date() ? formatDay(new Date()) : formatDay(new Date(propsMaxDate)),
+      });
+      return;
+    }
+
+  }, [minAndmaxDate.maxDate, propsMinDate, propsMaxDate, disableState])
 
   useEffect(() => {
     if (selectType === "range") {
@@ -95,6 +125,16 @@ function CldDateField({
     const disableField = disableCertainDate.find((dt: string) => formatDay(new Date(dt)) === formatDay(new Date(date)));
     return disableField;
   };
+
+  /**
+   * @param {string} date contain date
+   * @returns {boolean} return boolean
+   */
+    const handleDisableDaycolumn = (date: string) => {
+      const findDisableDay = daysInMonth?.find((dy: Date)=>new Date(date).getDay() === days[disableDay[dy.getDay()]?.toLowerCase()])
+      return findDisableDay
+    };
+
   /**
    * @param {*} e contain selected start date
    */
@@ -111,7 +151,7 @@ function CldDateField({
       } else if (new Date(startDate) >= new Date(endDate)) {
         setErrMsgStart("start Date should be lower than end Date");
         // setStartDate(selectedDateFromField.startDateFromField)
-      } else if (handleDisableDateField(startDate)) {
+      } else if (handleDisableDateField(startDate) || handleDisableDaycolumn(startDate)) {
         setErrMsgStart("Date must not be disabled date");
       } else {
         setSelectedDateFromField((prevState) => ({
@@ -158,7 +198,7 @@ function CldDateField({
           endDateFromField: selectedDateFromField.endDateFromField,
           from: "startDateSelect",
         });
-      } else if (handleDisableDateField(endDate)) {
+      } else if (handleDisableDateField(endDate) || handleDisableDaycolumn(endDate)) {
         setErrMsgEnd("Date must not be disabled date");
       } else {
         setSelectedDateFromField({
@@ -192,6 +232,7 @@ function CldDateField({
             min={minAndmaxDate.minDate}
             max={minAndmaxDate.maxDate}
             className={templateOutline}
+            disabled={windowDimensions <= 612}
           />
         </div>
         {selectType === "range" && (
@@ -207,6 +248,7 @@ function CldDateField({
               min={minAndmaxDate.minDate}
               max={minAndmaxDate.maxDate}
               className={templateOutline}
+              disabled={windowDimensions <= 612}
             />
           </div>
         )}

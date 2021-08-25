@@ -1,9 +1,9 @@
 .cld_container input {
-  height: 32px;
-  border: none;
+  height: 30px;
+  padding: 0px;
   box-shadow: 0px 0px 3px 0px #8a8a8a;
   text-transform: uppercase;
-  font-size: 14px;
+  font-size: 13px;
   color: #797979;
   width: 99.5%;
   text-align: center;
@@ -86,6 +86,16 @@
 .cld_startDateFieldOnly {
   display: flex;
   justify-content: center;
+}
+
+.cld_startDateFieldOnly > div label{
+  font-size: 14px;
+  color: #545454;
+  font-weight: 500;
+}
+
+label ~ #start_Cld_Field{
+  margin-top: 3px;
 }
 
 .cld_startDateFieldOnly > div:first-child {
