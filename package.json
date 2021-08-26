@@ -1,6 +1,6 @@
 {
   "name": "react-select-date",
-  "version": "0.0.3",
+  "version": "0.1.1",
   "description": "A React Calendar that consists of between single-date, multiple-date, range and slots booking features",
   "author": "Ranjith",
   "license": "MIT",
@@ -21,7 +21,9 @@
     "build": "rollup -c",
     "start": "rollup -c -w"
   },
-  "dependencies": {},
+  "dependencies": {
+    "tslib": "^2.3.1"
+  },
   "peerDependencies": {
     "react": ">= 16.8.0 < 2",
     "react-dom": ">= 16.8.0 < 2"
@@ -36,7 +38,7 @@
     "rollup": "^1.29.0",
     "rollup-plugin-sass": "^1.2.2",
     "rollup-plugin-typescript2": "^0.25.3",
-    "typescript": "^2.8.3"
+    "typescript": "^4.3.5"
   },
   "files": [
     "dist"

@@ -169,6 +169,7 @@ export function getDisableYear(disableState: string, minDate: string, maxDate: s
       endYearOption: new Date(maxDate).getFullYear()
     }
   }
+  return;
 }
 
 /**
@@ -262,4 +263,5 @@ export function getDisableWhenRange(disableCertainDate: any[],disableDays: any[]
   ) {
     return "cld_disablebgColor";
   }
+  return;
 }

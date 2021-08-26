@@ -15,7 +15,7 @@ export default {
     }
   ],
   plugins: [sass({ insert: true }), typescript()],
-  external: ['react', 'react-dom'],
+  external: ['react', 'react-dom', 'tslib'],
   resolve: {
     extensions: ['*', '.js', '.jsx']
   },
