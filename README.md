@@ -1,7 +1,7 @@
 # react-select-date
 A React Calendar that consists of between single-date, multiple-date, range and slots booking features.Purely date calculated from JavaScript Date Object.
 
-Live Demo: ---Work in progress---
+Live Demo: https://stoic-shirley-7fca42.netlify.app
 
 #### Range and Multiple select
 ![](https://user-images.githubusercontent.com/37235948/125201244-d6fa6e00-e28b-11eb-9761-4f0760ad357b.png)
