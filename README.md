@@ -9,6 +9,9 @@ Live Demo: ---Work in progress---
 #### Single and Duel slots
 ![](https://user-images.githubusercontent.com/37235948/125206652-0027f800-e2a6-11eb-9fb5-2a7b219e9a5a.png)
 
+#### Customizable DateField
+![](https://user-images.githubusercontent.com/37235948/130938410-eb2bfcb6-b75f-4a52-a551-2d241a2bee8b.png)
+
 # Getting Started
 
 ### Installation
@@ -60,7 +63,7 @@ function MyComponent() {
   const duelSlotDates = [
       { date: "2021-07-02", totalSlot: "30", avaliableSlot: "4" },
       { date: "2021-07-10", totalSlot: "30", avaliableSlot: "5" },
-      { date: new Date(), totalSlot: "280", avaliableSlot: "160" },
+      { date: "2021-7-15", totalSlot: "280", avaliableSlot: "160" },
       { date: "2021-07-07", totalSlot: "30", avaliableSlot: "14" },
     ]
   return (
@@ -100,7 +103,7 @@ showArrow                            | Boolean   | true             | show/hide 
 Property                             | type       | Example          | Description
 -------------------------------------|------------|------------------|-----------------------------------------------------------------
 defaultValue(Single)                 | Object     | { date: "2021-9-9" } | defines the default value for single select
-defaultValue(Multiple)               | Array      | [ "2021-8-15", "2021-08-01", new Date() ] | defines the default value for multiple select
+defaultValue(Multiple)               | Array      | [ "2021-8-15", "2021-08-01", "2021-08-20" ] | defines the default value for multiple select
 defaultValue(Range)                  | Object     | { startDate: "2021-8-15", endDate: "2021-8-20" } | defines the default value for range select
 
 ### About Calendar
