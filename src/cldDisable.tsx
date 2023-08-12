@@ -36,7 +36,7 @@ const daysArr = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"];
     if (format) {
       return `${months[Number(addZeroToMonth) - 1]} ${addZeroToDate},${date.getFullYear()}`;
     }
-    const dateIdFromCld = `${date.getFullYear()}-${addZeroToMonth}-${addZeroToDate}`;
+    const dateIdFromCld = `${date.getFullYear()}/${addZeroToMonth}/${addZeroToDate}`;
 
     return dateIdFromCld;
   }
@@ -225,14 +225,6 @@ export function getDisableWhenRange(disableCertainDate: any[],disableDays: any[]
     disableCertainDateFormat.push(formatDay(new Date(dt)));
   });
 
-  if(disableCertainDateFormat.length && disableCertainDateFormat.includes(formatDay(new Date(startAndendDate.startDate))) && formatDay(new Date(startAndendDate.startDate)) === formatDay(new Date(dateTypeId))){
-    return "startDateDisablebg"
-  }
-
-  if(disableCertainDateFormat.length && disableCertainDateFormat.includes(formatDay(new Date(startAndendDate.endDate))) && formatDay(new Date(startAndendDate.endDate)) === formatDay(new Date(dateTypeId))){
-    return "endDateDisablebg"
-  }
-
   if (
     dateTypeId > rangeStartDate &&
     dateTypeId < rangeEndDate &&
@@ -247,15 +239,6 @@ export function getDisableWhenRange(disableCertainDate: any[],disableDays: any[]
       disableCertainDayFormat.push(formatDay(new Date(dy)));
     } 
   })
-
-  if(disableCertainDayFormat.length && disableCertainDayFormat.includes(formatDay(new Date(startAndendDate.startDate))) && formatDay(new Date(startAndendDate.startDate)) === formatDay(new Date(dateTypeId))){
-    return "startDateDisablebg"
-  }
-
-  if(disableCertainDayFormat.length && disableCertainDayFormat.includes(formatDay(new Date(startAndendDate.endDate))) && formatDay(new Date(startAndendDate.endDate)) === formatDay(new Date(dateTypeId))){
-    return "endDateDisablebg"
-  }
-
   if (
     dateTypeId > rangeStartDate &&
     dateTypeId < rangeEndDate &&

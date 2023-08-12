@@ -290,7 +290,7 @@ function Calendar({
         noOfDate.push(<td />);
       } else {
         const dateId = `${addZero(i - getStartDay)}${addZero(dynMonth)}${dynYear}`;
-        const dateTypeId = `${dynYear}-${addZero(dynMonth)}-${addZero(i - getStartDay)}`;
+        const dateTypeId = `${dynYear}/${addZero(dynMonth)}/${addZero(i - getStartDay)}`;
 
         // range classname for start,between and end
         let rangeHightLight;
@@ -325,7 +325,7 @@ function Calendar({
               (Number(inRange) <= i - getStartDay &&
                 rangeStartDate.getDate() > i - getStartDay &&
                 `${templateRangeHighLightbg} cld_inrangeFirstIndex`);
-          } else if (rangeStartDate < new Date(`${dynYear}-${dynMonth}-${Number(inRange)}`)) {
+          } else if (rangeStartDate < new Date(`${dynYear}/${dynMonth}/${Number(inRange)}`)) {
             inRangeCondition = Number(inRange) >= i - getStartDay && `${templateRangeHighLightbg} cld_inrangeLastIndex`;
           } else {
             inRangeCondition =
@@ -580,7 +580,7 @@ function Calendar({
       const fieldFindDaysInMonth = new Date(selDt.getFullYear(), selDt.getMonth() + 1, 0).getDate();
       const fieldFindStartDayInMonth = new Date(selDt.getFullYear(), selDt.getMonth(), 1).getDay();
       const dateIdFromFiled = `${addZero(selDt.getDate())}${addZero(selDt.getMonth() + 1)}${selDt.getFullYear()}`;
-      const actualDateFromFiled = `${selDt.getFullYear()}-${selDt.getMonth() + 1}-${selDt.getDate()}`;
+      const actualDateFromFiled = `${selDt.getFullYear()}/${selDt.getMonth() + 1}/${selDt.getDate()}`;
 
       setDynYear(selDt.getFullYear());
       setDynMonth(selDt.getMonth() + 1);
