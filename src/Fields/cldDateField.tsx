@@ -107,14 +107,14 @@ function CldDateField({
    * @param {object} e contain selected start date
    */
   const handleStartDate = (e: any) => {
-    setStartDate(e.target.value);
+    setStartDate(e.target.value?.replaceAll("-", "/"));
   };
 
   /**
    * @param {object} e contain selected end date
    */
   const handleEndDate = (e: any) => {
-    setEndDate(e.target.value);
+    setEndDate(e.target.value?.replaceAll("-", "/"));
   };
 
   /**
@@ -225,7 +225,7 @@ function CldDateField({
           <input
             type="date"
             id="start_Cld_Field"
-            value={startDate}
+            value={startDate.replaceAll("/", "-")}
             onChange={(e) => handleStartDate(e)}
             onKeyDown={(e) => startSetError(e)}
             onBlur={startSetError}
@@ -241,7 +241,7 @@ function CldDateField({
             <input
               type="date"
               id="end_Cld_Field"
-              value={endDate}
+              value={endDate.replaceAll("/", "-")}
               onChange={(e) => handleEndDate(e)}
               onKeyDown={(e) => endSetError(e)}
               onBlur={endSetError}
